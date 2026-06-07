@@ -44,7 +44,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
 
     private func setupPlayer() {
-        player = PlayerNode(color: .yellow, size: CGSize(width: 36, height: 40))
+        player = PlayerNode()
         player.position = CGPoint(x: size.width / 2, y: 150)
         player.configure()
         addChild(player)
@@ -225,10 +225,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     platformNode.addChild(player)
                     
                     // Set toạ độ Y của egg cho khớp với mặt phẳng của platform
-                    let targetY = (platformNode.size.height / 2) + (player.size.height / 2)
+                    let targetY = (platformNode.platformSize.height / 2) + (player.playerSize.height / 2)
                     player.position = CGPoint(x: localPos.x, y: targetY)
                 } else if player.parent == platformNode {
-                    let targetY = (platformNode.size.height / 2) + (player.size.height / 2)
+                    let targetY = (platformNode.platformSize.height / 2) + (player.playerSize.height / 2)
                     player.position.y = targetY
                 }
                 
